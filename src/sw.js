@@ -48,10 +48,8 @@ async function activateSW() {
     return clients.claim();
 }
 
-
+// triggered on every http request
 self.addEventListener('fetch', event => event.respondWith(cacheThenNetwork(event)));
-
-
 
 async function cacheThenNetwork(event) {
 
