@@ -1,30 +1,24 @@
 
 import * as express from 'express';
-import {Application} from "express";
-import {readAllLessons} from "./read-all-lessons.route";
-import {addPushSubscriber} from "./add-push-subscriber.route";
-import {sendNewsletter} from "./send-newsletter.route";
+import {Application} from 'express';
+import {readAllLessons} from './read-all-lessons.route';
+import {addPushSubscriber} from './add-push-subscriber.route';
+import {sendNewsletter} from './send-newsletter.route';
 const bodyParser = require('body-parser');
 
 const webpush = require('web-push');
 
 
 const vapidKeys = {
-    publicKey: "TODO",
-    privateKey: "TODO"
+    'publicKey':  'BCHL5CPv5M5xjNWDCNfQNzBXRk2d-bX2cO8xw92_yKJlVHHMylclH265IvQimJ3bkErZz8EmctpA747mRNbN2cQ',
+    'privateKey': 'EGGzENBdfHlwppz1Ie8q9zer_-xRJCRFLlzO8sKJa90'
 };
-
-/*
-
-    TODO - uncomment after generating your VAPID keys
 
 webpush.setVapidDetails(
     'mailto:example@yourdomain.org',
     vapidKeys.publicKey,
     vapidKeys.privateKey
 );
-
-*/
 
 
 const app: Application = express();
@@ -47,7 +41,7 @@ app.route('/api/newsletter')
 
 // launch an HTTP Server
 const httpServer = app.listen(9000, () => {
-    console.log("HTTP Server running at http://localhost:" + httpServer.address().port);
+    console.log('HTTP Server running at http://localhost:' + httpServer.address().port);
 });
 
 
