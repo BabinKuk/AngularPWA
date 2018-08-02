@@ -1,14 +1,12 @@
 
 
-
+// check if browser supports sw
 if ('serviceWorker' in navigator) {
 
     navigator.serviceWorker.register('/sw.js', {
-        scope: '/'
+        scope: '/' // intercept all http requests
     })
-        .then(registration => {
-
-            console.log('Service worker registration completed');
-
-        });
+    .then(registration => {
+        console.log('Service worker registration completed');
+    });
 }
