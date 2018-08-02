@@ -1,7 +1,5 @@
-
-
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 
 
@@ -12,10 +10,12 @@ export class NewsletterService {
 
     }
 
-    addPushSubscriber(sub:any) {
+    // add subscriber
+    addPushSubscriber(sub: any) {
       return this.http.post('/api/notifications', sub);
     }
 
+    // send push notification
     send() {
       return this.http.post('/api/newsletter', null);
     }
