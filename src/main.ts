@@ -8,9 +8,10 @@ if (environment.production) {
   enableProdMode();
 }
 
+// register sw after angular app finish bootstraping itself
 platformBrowserDynamic().bootstrapModule(AppModule)
     .then(() => {
-
+        // check if browser has sw support
         if ('serviceWorker' in navigator) {
 
             navigator.serviceWorker.register('/sw.js', {
@@ -20,13 +21,13 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
                 console.log('Service worker registration completed');
 
+                // manually check for new sw version (after 60s)
                 setInterval(() => {
 
                     console.log('Updating Service Worker ...');
                     registration.update();
 
                 }, 60000);
-
 
             });
         }
